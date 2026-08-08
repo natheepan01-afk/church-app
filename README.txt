@@ -1,10 +1,10 @@
-Church System PWA v1.4 - SAFE AREA CLEAN
+Church System PWA v1.6 - BOTTOM EDGE TO EDGE
 
-แก้เฉพาะตำแหน่งด้านบนของ PWA:
-- เอา fallback 50px ออก
-- ใช้ safe-area-inset-top ของ iPhone เท่านั้น
-- ไม่แตะ Church System v4.1 / Apps Script / ข้อมูล
-- คงการล้าง cache/service worker เก่าไว้
+เป้าหมาย:
+- ด้านบนคงตำแหน่งแบบเดิม ไม่ขยับทั้งหน้า
+- ขยายเฉพาะขอบล่างของ PWA ให้ลงไปถึงขอบล่างของ iPhone
+- Bottom Navigation ของ Church System จึงมีพื้นที่ลงไปถึงบริเวณ Home Indicator
+- ไม่แตะ Apps Script / Church System v4.1 / ข้อมูล
 
 วิธีอัปเดต:
 1) Upload ไฟล์ทั้งหมดทับของเดิมใน GitHub repo church-app
