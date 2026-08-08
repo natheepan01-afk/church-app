@@ -1,4 +1,4 @@
-const CACHE = 'church-shell-v1';
+const CACHE = 'church-shell-v1-1';
 const FILES = [
   './',
   './index.html',
