@@ -1,18 +1,13 @@
-CHURCH SYSTEM PWA v1.2 - iPhone STATUS BAR + CACHE FIX
+Church System PWA v1.3 CLEAN
 
-This release:
-- stops caching index.html
-- removes old service-worker caches
-- reserves 48px at the top only when opened as an installed iPhone PWA
-- leaves the Apps Script Church System untouched
+อัปโหลดไฟล์ทั้งหมดในโฟลเดอร์นี้ทับของเดิมที่ root ของ GitHub repo church-app
 
-Upload ALL files to the root of the same GitHub repository and Commit.
+หลัง GitHub Pages deploy เป็นสีเขียว:
+1) ลบไอคอน Church System เดิมออกจาก iPhone
+2) เปิด Safari ที่:
+   https://natheepan01-afk.github.io/church-app/?v=13
+3) ทดสอบว่าหน้าเว็บแสดงปกติ
+4) Share > Add to Home Screen ใหม่
 
-IMPORTANT after GitHub Pages deploys:
-1. Delete the existing Church System icon from the iPhone Home Screen.
-2. In Safari open:
-   https://natheepan01-afk.github.io/church-app/?v=12
-3. Confirm the page works.
-4. Share > Add to Home Screen again.
-
-This one-time reinstall is required because the old installed PWA may still be controlled by the old cache.
+เวอร์ชันนี้สร้าง index.html ใหม่ทั้งไฟล์ ไม่ได้ patch จากไฟล์ที่พัง
+และจะล้าง service worker/cache รุ่นเก่าอัตโนมัติ
