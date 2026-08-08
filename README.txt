@@ -1,15 +1,18 @@
-CHURCH SYSTEM PWA v1.1 - iPhone Safe Area Fix
+CHURCH SYSTEM PWA v1.2 - iPhone STATUS BAR + CACHE FIX
 
-Upload ALL files in this folder to the ROOT of the GitHub repository.
-Choose to replace the existing files.
+This release:
+- stops caching index.html
+- removes old service-worker caches
+- reserves 48px at the top only when opened as an installed iPhone PWA
+- leaves the Apps Script Church System untouched
 
-Important:
-- index.html now keeps Church System below the iPhone status bar / Dynamic Island.
-- service-worker.js cache version was bumped so the fix can refresh.
-- No Apps Script code or data was changed.
+Upload ALL files to the root of the same GitHub repository and Commit.
 
-After Commit:
-1. Wait for GitHub Pages deployment to turn green.
-2. Open the existing Home Screen icon once.
-3. If it still shows the old layout, close the app completely and open again.
-4. If iOS still caches the old shell, remove the Home Screen icon and Add to Home Screen once more.
+IMPORTANT after GitHub Pages deploys:
+1. Delete the existing Church System icon from the iPhone Home Screen.
+2. In Safari open:
+   https://natheepan01-afk.github.io/church-app/?v=12
+3. Confirm the page works.
+4. Share > Add to Home Screen again.
+
+This one-time reinstall is required because the old installed PWA may still be controlled by the old cache.
