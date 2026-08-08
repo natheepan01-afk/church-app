@@ -2,72 +2,148 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-
-  <title>ระบบคริสตจักรสายธารพระคุณ</title>
-
-  <link rel="apple-touch-icon"
-        href="https://drive.google.com/thumbnail?id=1AoEAN03xQfDryJS_udLZRVCGEIQolAyv&sz=w512">
-
-  <link rel="icon" type="image/png"
-        href="https://drive.google.com/thumbnail?id=1AoEAN03xQfDryJS_udLZRVCGEIQolAyv&sz=w512">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+  <meta name="theme-color" content="#0B63CE">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Church System">
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <title>Church System | คริสตจักรสายธารพระคุณ</title>
+
+  <link rel="manifest" href="./manifest.json">
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon.png">
 
   <style>
-    html, body {
-      margin: 0;
-      width: 100%;
-      height: 100%;
-      background: #ffffff;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    :root {
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+      --blue: #0B63CE;
     }
 
-    .loading {
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
       width: 100%;
       height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: #f8fbff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Thai", sans-serif;
+    }
+
+    #app {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: white;
+    }
+
+    #churchFrame {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+      background: white;
+    }
+
+    #loading {
+      position: fixed;
+      inset: 0;
+      z-index: 10;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
       gap: 16px;
-      color: #12315f;
+      background:
+        radial-gradient(circle at top right, rgba(46,135,255,.18), transparent 35%),
+        linear-gradient(160deg, #eef6ff 0%, #ffffff 55%, #f4f9ff 100%);
+      transition: opacity .25s ease, visibility .25s ease;
     }
 
-    .loading img {
-      width: 110px;
-      height: 110px;
-      border-radius: 26px;
-      object-fit: contain;
+    #loading.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
     }
 
-    .loading p {
-      margin: 0;
-      font-size: 18px;
-      font-weight: 700;
+    .logo {
+      width: 112px;
+      height: 112px;
+      object-fit: cover;
+      border-radius: 28px;
+      box-shadow: 0 18px 45px rgba(15, 85, 170, .18);
+      background: white;
+    }
+
+    .title {
+      font-size: 19px;
+      font-weight: 800;
+      color: #12345a;
+    }
+
+    .sub {
+      font-size: 13px;
+      color: #6a7f96;
+      margin-top: -8px;
+    }
+
+    .spinner {
+      width: 28px;
+      height: 28px;
+      border: 3px solid #d8e8fb;
+      border-top-color: var(--blue);
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
     }
   </style>
 </head>
 
 <body>
+  <div id="loading">
+    <img class="logo" src="./icon-512.png" alt="ตราคริสตจักรสายธารพระคุณ">
+    <div class="title">คริสตจักรสายธารพระคุณ</div>
+    <div class="sub">กำลังเปิด Church System</div>
+    <div class="spinner" aria-label="กำลังโหลด"></div>
+  </div>
 
-<div class="loading">
-  <img
-    src="https://drive.google.com/thumbnail?id=1AoEAN03xQfDryJS_udLZRVCGEIQolAyv&sz=w512"
-    alt="โลโก้คริสตจักร"
-  >
-  <p>คริสตจักรสายธารพระคุณ</p>
-</div>
+  <main id="app">
+    <iframe
+      id="churchFrame"
+      src="https://script.google.com/macros/s/AKfycbzxP0l52UGx5veHwyo_jGCDYppLacirhePSn2Zu5nEoFbvGf3sG8aVG_5mZ6IugPMTS/exec"
+      title="Church System"
+      allow="camera; microphone; clipboard-read; clipboard-write; fullscreen"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </main>
 
-<script>
-  setTimeout(function () {
-    window.location.replace(
-      "https://script.google.com/macros/s/AKfycbzxP0l52UGx5veHwyo_jGCDYppLacirhePSn2Zu5nEoFbvGf3sG8aVG_5mZ6IugPMTS/exec"
-    );
-  }, 500);
-</script>
+  <script>
+    const frame = document.getElementById('churchFrame');
+    const loading = document.getElementById('loading');
 
+    frame.addEventListener('load', () => {
+      setTimeout(() => loading.classList.add('hidden'), 250);
+    });
+
+    // Fallback so loading screen never gets stuck forever.
+    setTimeout(() => loading.classList.add('hidden'), 8000);
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker.js').catch(() => {});
+      });
+    }
+  </script>
 </body>
 </html>
