@@ -19,7 +19,6 @@
     :root {
       --top-safe: env(safe-area-inset-top, 0px);
       --bottom-safe: env(safe-area-inset-bottom, 0px);
-      --ios-fallback-top: 0px;
     }
 
     * {
@@ -40,7 +39,7 @@
       position: fixed;
       left: 0;
       right: 0;
-      top: max(var(--top-safe), var(--ios-fallback-top));
+      top: var(--top-safe);
       bottom: var(--bottom-safe);
       background: #ffffff;
       overflow: hidden;
@@ -95,20 +94,6 @@
     }
   </style>
 
-  <script>
-    (function () {
-      var ua = navigator.userAgent || "";
-      var isIOS = /iPhone|iPad|iPod/i.test(ua);
-      var standalone = (window.navigator.standalone === true) ||
-        (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches);
-
-      if (isIOS && standalone) {
-        // บางรุ่นของ iPhone รายงาน safe-area ด้านบนเป็น 0 ใน iframe shell
-        // จึงเผื่อระยะเฉพาะตอนเปิดจาก Home Screen
-        document.documentElement.style.setProperty("--ios-fallback-top", "50px");
-      }
-    })();
-  </script>
 </head>
 
 <body>

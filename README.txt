@@ -1,13 +1,16 @@
-Church System PWA v1.3 CLEAN
+Church System PWA v1.4 - SAFE AREA CLEAN
 
-อัปโหลดไฟล์ทั้งหมดในโฟลเดอร์นี้ทับของเดิมที่ root ของ GitHub repo church-app
+แก้เฉพาะตำแหน่งด้านบนของ PWA:
+- เอา fallback 50px ออก
+- ใช้ safe-area-inset-top ของ iPhone เท่านั้น
+- ไม่แตะ Church System v4.1 / Apps Script / ข้อมูล
+- คงการล้าง cache/service worker เก่าไว้
 
-หลัง GitHub Pages deploy เป็นสีเขียว:
-1) ลบไอคอน Church System เดิมออกจาก iPhone
-2) เปิด Safari ที่:
-   https://natheepan01-afk.github.io/church-app/?v=13
-3) ทดสอบว่าหน้าเว็บแสดงปกติ
-4) Share > Add to Home Screen ใหม่
-
-เวอร์ชันนี้สร้าง index.html ใหม่ทั้งไฟล์ ไม่ได้ patch จากไฟล์ที่พัง
-และจะล้าง service worker/cache รุ่นเก่าอัตโนมัติ
+วิธีอัปเดต:
+1) Upload ไฟล์ทั้งหมดทับของเดิมใน GitHub repo church-app
+2) Commit
+3) รอ GitHub Pages deploy เป็นสีเขียว
+4) ลบไอคอน Church System เดิมบน iPhone
+5) เปิด Safari:
+   https://natheepan01-afk.github.io/church-app/
+6) Share > Add to Home Screen ใหม่
